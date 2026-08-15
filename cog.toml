@@ -1,0 +1,49 @@
+[project]
+name = "google-scholar-research-exporter"
+owner = "godelgodel4everllm"
+type = "web-cli"
+status = "requirements-only"
+version = "0.1.0"
+
+[understanding]
+domain = "scholarly-discovery-and-citation-export"
+key_concepts = [
+  "subject taxonomy",
+  "author label",
+  "field keyword",
+  "h-index total",
+  "h-index five-year",
+  "outerHTML capture",
+  "page classifier",
+  "author profile",
+  "publication metadata",
+  "provenance",
+  "CSL-JSON",
+  "BibTeX",
+  "RIS",
+  "RefWorks Tagged",
+  "Zotero Web API"
+]
+ambiguities = [
+  "Google Scholar Metrics categories versus author profile labels",
+  "pages blocked by CAPTCHA or consent interstitial",
+  "metadata fields omitted from profile publication tables",
+  "same author names and same-title publications",
+  "DOI unavailable from Scholar HTML"
+]
+
+[dependencies]
+upstream = [
+  "browser-captured Google Scholar outerHTML",
+  "Google Scholar Metrics category pages",
+  "Google Scholar author search and profile pages"
+]
+optional_enrichment = ["Crossref", "OpenAlex", "Semantic Scholar"]
+downstream = ["Zotero", "Juris-M", "EndNote", "RefWorks", "0_AI_scholar"]
+
+[boundaries]
+captcha_bypass = false
+residential_proxy_pool = false
+cookie_persistence = false
+raw_html_publication = false
+credential_in_repository = false
